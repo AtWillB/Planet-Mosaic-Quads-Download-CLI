@@ -24,7 +24,7 @@ import requests
 import json
 import csv
 import sys
-import pyproj
+from pyproj import Transformer
 from datetimerange import DateTimeRange
 from functools import partial
 from shapely.geometry import shape
@@ -49,7 +49,7 @@ def handle_page(response, gmainbound,start, end,outfile):
         mosgeom = shape(Polygon(box(bd[0], bd[1], bd[2], bd[3]).exterior.coords))
         gboundlist = gmainbound.split(',')
         boundgeom = shape(Polygon(box(float(gboundlist[0]), float(gboundlist[1]), float(gboundlist[2]), float(gboundlist[3]))))
-        proj = partial(pyproj.transform, pyproj.Proj(init='epsg:4326'), pyproj.Proj(init='epsg:3857'))
+        proj = Transformer.from_crs(4326, 3857, always_xy=True).transform
         boundgeom = transform(proj, boundgeom)
         mosgeom = transform(proj, mosgeom)
         if boundgeom.intersection(mosgeom).is_empty:
@@ -112,6 +112,8 @@ def metadata(infile,start,end,outfile):
         if response['mosaics'][0]['quad_download'] ==True:
             final_list = handle_page(response, gmainbound, start, end,outfile)
     except KeyError:
+        # print(response['mosaics'][0])
+        # exit()
         print('No Download permission for: '+str(response['mosaics'][0]['name']))
     try:
         while response['_links'].get('_next') is not None:
