@@ -24,7 +24,7 @@ setuptools.setup(
     url='https://github.com/samapriya/Planet-Mosaic-Quads-Download-CLI',
     install_requires=['requests>=2.19.1',
     'DateTimeRange>=0.5.5',
-    'planet>=1.2.1',
+    'planet==1.5.1',
     'psutil>=5.4.5',
     'retrying>=1.3.3',
     'pySmartDL==1.2.5;python_version<"3.4"',
