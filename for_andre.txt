@@ -1,17 +1,21 @@
 Hey Andre,
 This is a quick note for you so you don't have to read the giant README from the original guy who wrote this. 
-**Before you do anything, run "source requirements.txt".**
-This is a small script I wrote that pip installs all the propper librarys to run the code. These were the biggest problems for me, 
-so if you run into any issues its probably a library problem. 
-Just so you know Im running python3.9, not that that should matter
+**Before you do anything, run "python3 setup.py install".**
+This is a script that pip installs all the propper librarys to run the code. You might see a few error/warning messages, but just ignore them for now.
 
+You DO NOT need an email/planet acount. I edited the code to use a api key that I generated. Don't don't worry about trying to sign up for anything on the Planet website. 
 
 
 There are only two folders in this repository that you will ever have to worry about. pbasemap and peru. 
 
 /pbasemap is where all of the code is stored. In order to start running commands from this repo you will do "cd pbasemap" and then "python pbasemap.py -h"(help command, shows what everthing can do)
-/peru I made. It contains all of the mosaics metadata, and a geojson object of the country. These combined will download everything since 2015ish to now from Peru.
+/peru I made. It contains all of the mosaics metadata, and a geojson object of Peru. These combined will download everything since 2015ish to now from Peru.
 
 
-Now, you are ready to begin downloading. Since I already set up the .csv's with the mosaica_list command, all you need to do is cd into /pbasemap and run the following command
+Now, you are ready to begin downloading. Since I already set up the stuff in /peru, all you need to do is cd into /pbasemap and run the following command
 python pbasemap.py download --geometry ../peru/peru.geojson --local ../peru/peru_data --idlist ../peru/peru.csv
+
+
+
+
+If you get any errors, let me know. I've probbaly run into them. Hope it works the first time though!
