@@ -14,12 +14,7 @@ idmatch=[]
 
 # Create an empty geojson template
 temp = {"coordinates":[], "type":"Polygon"}
-try:
-    PL_API_KEY = find_api_key()
-    os.environ['PLANET_API_KEY'] = find_api_key()
-except:
-    print('Failed to get Planet Key: Initialize First')
-    sys.exit()
+PL_API_KEY = "PLAKa375134fbc634e1a920b28a747cffe4e"
 SESSION = requests.Session()
 SESSION.auth = (PL_API_KEY, '')
 CAS_URL = 'https://api.planet.com/mosaic/experimental/mosaics/'
