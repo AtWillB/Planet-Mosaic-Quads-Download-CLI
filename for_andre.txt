@@ -16,7 +16,7 @@ Now, you are ready to begin downloading. Since I already set up the stuff in /pe
 python pbasemap.py download --geometry ../peru/peru.geojson --local ../peru/peru_data --idlist ../peru/peru.csv
 
 
-python pbasemap.py download --geometry ../vietnam/vietnam.geojson --local ../vietnam/vietnam_data --idlist ../vietnam/vietnam.csv
+python pbasemap.py download --geometry ../vietnam/camau.geojson --local ../vietnam/camau_data --idlist ../vietnam/vietnam.csv
 
 
 If you get any errors, let me know. I've probbaly run into them. Hope it works the first time though!
